@@ -11,10 +11,92 @@
 
 <body>
     <div class="container">
-        <h1>
-            Hello Weather App
+        <h4> <small> This week in</small>
+
+        </h4>
+        <h1 id=city>
+            This week in <span id=city-input> Orlando</span>
         </h1>
-        <a href="" class="btn btn-primary">Button</a>
+        <h3 class="week">
+            12/21-12/27
+        </h3>
+
+
+        <form class="search-form" id="search-form">
+            <div class="row">
+                <div class="col-4">
+                    <input type="search" placeholder="Search a city" autofocus="on" autocomplete="off" id="city-input" class="form-control shadow-sm" />
+                </div>
+
+                <div class="col-2">
+
+                    <button type="submit" class="btn btn-primary btn-sml w-100" id=city-input>
+                Search
+                </button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-success btn-sml w-100" id="current-location-button">
+                    Current</button>
+                </div>
+
+            </div>
+
+
+
+
+
+        </form>
+        <hr />
+        <h1 id="city"> </h1>
+        <ul>
+            <li id="date"></li>
+            <li id="description"></li>
+        </ul>
+        <div class="row">
+            <div class="col-6">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <span class="temperature" id="temperature"></span
+                ><span class="units">°C</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <hr />
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">WIND</h6>
+                    <span id="wind"></span>mph
+
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">HUMIDITY</h6>
+                    <span id="humidity"></span>%
+
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">UV INDEX</h6>
+                    <p class="card-text">0</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="src/app.js"></script>
 
