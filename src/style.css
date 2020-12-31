@@ -55,3 +55,11 @@ h4 {
     font-size: 3px;
     font-style: oblique;
 }
+
+.active {
+    color: rgb(33, 33, 33);
+}
+
+.active:hover {
+    text-decoration: none;
+}

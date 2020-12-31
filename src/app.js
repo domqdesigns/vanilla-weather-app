@@ -51,6 +51,8 @@ function displayWeatherCondition(response) {
     );
     document.querySelector("#description").innerHTML =
         response.data.weather[0].main;
+
+    celiusTemp = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -96,7 +98,30 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 
+function showFahrenheitTemp(event) {
+    event.preventDefault();
+    let fahrenheitTemp = (celiusTemp * 9) / 5 + 32;
+    celiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 
+}
+
+function showCeliusTemp(event) {
+    event.preventDefault();
+    celiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(celiusTemp);
+}
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp)
+
+let celiusTemp = null;
+
+let celiusLink = document.querySelector("#celius");
+celiusLink.addEventListener("click", showCeliusTemp)
 
 
 searchCity("Orlando");
