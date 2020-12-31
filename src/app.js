@@ -41,7 +41,7 @@ currentDate.innerHTML = "December " + date + ", 2020 " + hour + ":" + mins;
 function displayWeatherCondition(response) {
     document.querySelector("#city").innerHTML = response.data.name;
     document.querySelector("#temperature").innerHTML = Math.round(
-        response.data.main.temp
+        celiusTemp
     );
 
     document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -52,7 +52,7 @@ function displayWeatherCondition(response) {
     document.querySelector("#description").innerHTML =
         response.data.weather[0].main;
 
-
+    celiusTemp = response.data.main.temp;
 }
 
 function searchCity(city) {
