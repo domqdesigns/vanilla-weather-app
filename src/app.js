@@ -90,7 +90,7 @@ dateElement.innerHTML = formatDate(currentTime);
 
 let searchForm = document.querySelector("#search-form");
 let h1 = document.querySelector("h1");
-h1.innerHTML = "This week in " + searchForm;
+h1.innerHTML = "Orlando"
 searchForm.addEventListener("submit", handleSubmit);
 
 
