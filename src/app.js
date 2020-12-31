@@ -45,7 +45,7 @@ function displayWeatherCondition(response) {
     );
 
     document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-    document.querySelector("#precipitation").innerHTML = response.data.main.precip_in;
+    document.querySelector("#precipitation").innerHTML = response.data.rain;
     document.querySelector("#wind").innerHTML = Math.round(
         response.data.wind.speed
     );
