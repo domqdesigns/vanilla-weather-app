@@ -52,6 +52,9 @@ function displayWeatherCondition(response) {
     document.querySelector("#description").innerHTML =
         response.data.weather[0].main;
 
+    document.querySelector("#icon").setAttribute("src", "http://openweathermap.org/img/wn/" + response.data.weather[0].icon + "@2x.png");
+    document.querySelector("#icon").setAttribute("alt", response.data.weather[0].description);
+
     celiusTemp = response.data.main.temp;
 }
 
@@ -90,7 +93,7 @@ dateElement.innerHTML = formatDate(currentTime);
 
 let searchForm = document.querySelector("#search-form");
 let h1 = document.querySelector("h1");
-h1.innerHTML = "Orlando"
+h1.innerHTML = ("Orlando");
 searchForm.addEventListener("submit", handleSubmit);
 
 
@@ -100,10 +103,8 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 function showFahrenheitTemp(event) {
     event.preventDefault();
-    let fahrenheitTemp = (celiusTemp * 9) / 5 + 32;
-    celiusLink.classList.remove("active");
-    fahrenheitLink.classList.add("active");
-    let temperatureElement = document.querySelector("#temperature");
+    let temperatureElement = document.querySelector("#fahrenheit");
+    let fahrenheitTemp = (response.data.main.temp * 9) / 5 + 32;
     temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 
 }
@@ -115,13 +116,15 @@ function showCeliusTemp(event) {
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = Math.round(celiusTemp);
 }
-let fahrenheitLink = document.querySelector("#fahrenheit");
+let fahrenheitLink = document.querySelector("#temp");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp)
 
-let celiusTemp = null;
+
 
 let celiusLink = document.querySelector("#celius");
 celiusLink.addEventListener("click", showCeliusTemp)
+
+
 
 
 searchCity("Orlando");
