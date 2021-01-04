@@ -58,11 +58,16 @@ function displayWeatherCondition(response) {
     celiusTemp = response.data.main.temp;
 }
 
+
+
 function searchCity(city) {
     let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeatherCondition);
+
+
 }
+
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -103,23 +108,21 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 function showFahrenheitTemp(event) {
     event.preventDefault();
-    let temperatureElement = document.querySelector("#fahrenheit");
-    let fahrenheitTemp = (response.data.main.temp * 9) / 5 + 32;
-    temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-
+    let fahrenheitTemp = (celiusTemp * 9) / 5 + 32;
+    document.querySelector("#temperature").innerHTML = Math.round(fahrenheitTemp)
+    celiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
 }
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp)
 
 function showCeliusTemp(event) {
     event.preventDefault();
     celiusLink.classList.add("active");
     fahrenheitLink.classList.remove("active");
-    let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(celiusTemp);
+    document.querySelector("#temperature").innerHTML = Math.round(celiusTemp);
+
 }
-let fahrenheitLink = document.querySelector("#temp");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp)
-
-
 
 let celiusLink = document.querySelector("#celius");
 celiusLink.addEventListener("click", showCeliusTemp)
