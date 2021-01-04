@@ -129,5 +129,4 @@ celiusLink.addEventListener("click", showCeliusTemp)
 
 
 
-
 searchCity("Orlando");
